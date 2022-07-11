@@ -20,6 +20,11 @@
 * IntelliJ IDEA 2022.1.3 (Community Edition)
 * Flutter 3.0.4
 
+### 사용 라이브러리 (버전은 2022.07 기준)
+
+* [get](https://pub.dev/packages/get) 4.6.5
+* [http](https://pub.dev/packages/http) 0.13.4
+
 ### Git 이용시 장점
 
 git을 이용하여 코드를 내려받을 경우, 주요 업데이트 시점으로 reset 해가면서 진행 상황을 보는 것이 가능  
