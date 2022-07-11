@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './views/my_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,19 +18,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyPage(),
-    );
-  }
-}
-
-class MyPage extends StatelessWidget {
-  const MyPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('GetX Grid-Shop'),
-      ),
     );
   }
 }
