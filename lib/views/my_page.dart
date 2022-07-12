@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/controller.dart';
+import '../views/product_tile.dart';
 
 class MyPage extends StatelessWidget {
   MyPage({Key? key}) : super(key: key);
@@ -29,15 +30,15 @@ class MyPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(0, 16.0, 0, 16.0),
-        child: Obx(() => GridView.builder(
+        child: Obx(
+          () => GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 8.0,
               crossAxisSpacing: 8.0,
             ),
-            itemBuilder: (context, index) => Container(
-              color: Colors.red,
-              child: Text(controller.productList[index].name),
+            itemBuilder: (context, index) => ProductTile(
+              product: controller.productList[index],
             ),
             itemCount: controller.productList.length,
           ),
