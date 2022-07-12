@@ -20,8 +20,8 @@ class ProductTile extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: 75,
-                  width: 100,
+                  height: 60,
+                  width: 80,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4.0),
                   ),
@@ -44,39 +44,35 @@ class ProductTile extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8.0),
-            const Text(
-              'product name',
-              style: TextStyle(fontWeight: FontWeight.w400),
+            Text(
+              product.name,
+              style: const TextStyle(fontWeight: FontWeight.w400),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
             const SizedBox(height: 8.0),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 2.0),
+              padding: const EdgeInsets.symmetric(
+                vertical: 4.0,
+                horizontal: 2.0,
+              ),
               decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: const [
+                children: [
                   Text(
-                    '',
-                    style: TextStyle(color: Colors.white),
+                    '${product.rating}',
+                    style: const TextStyle(color: Colors.white),
                   ),
-                  Icon(
-                    Icons.star,
-                    size: 16.0,
-                    color: Colors.white,
-                  ),
+                  const Icon(Icons.star, size: 16.0, color: Colors.white),
                 ],
               ),
             ),
             const SizedBox(height: 8.0),
-            const Text(
-              '',
-              style: TextStyle(fontSize: 20.0),
-            ),
+            Text('\$${product.price}', style: const TextStyle(fontSize: 18.0)),
           ],
         ),
       ),
