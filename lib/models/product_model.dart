@@ -45,8 +45,8 @@ class Product {
   String productLink;
   String websiteLink;
   String description;
-  double rating;
-  String category;
+  dynamic rating;
+  dynamic category;
   String productType;
   List<dynamic> tagList;
   DateTime createdAt;
@@ -67,7 +67,7 @@ class Product {
     websiteLink: json["website_link"],
     description: json["description"],
     rating: json["rating"] == null ? null : json['rating'].toDouble(),
-    category: json["category"],
+    category: json["category"] == null ? null : json['category'],
     productType: json["product_type"],
     tagList: List<dynamic>.from(json["tag_list"].map((x) => x)),
     createdAt: DateTime.parse(json["created_at"]),
@@ -102,10 +102,10 @@ class Product {
   };
 }
 
-enum Brand { MAYBELLINE }
+enum Brand { maybelline }
 
 final brandValues = EnumValues({
-  "maybelline": Brand.MAYBELLINE
+  "maybelline": Brand.maybelline
 });
 
 class ProductColor {
@@ -115,11 +115,11 @@ class ProductColor {
   });
 
   String hexValue;
-  String colourName;
+  dynamic colourName;
 
   factory ProductColor.fromJson(Map<String, dynamic> json) => ProductColor(
     hexValue: json["hex_value"],
-    colourName: json["colour_name"],
+    colourName: json["colour_name"] == null ? null : json['colour_name'],
   );
 
   Map<String, dynamic> toJson() => {
