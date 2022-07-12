@@ -17,7 +17,8 @@ class ProductTile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   height: 60,
@@ -31,10 +32,8 @@ class ProductTile extends StatelessWidget {
                 Obx(
                   () => CircleAvatar(
                     backgroundColor: Colors.white,
-                    radius: 15.0,
                     child: IconButton(
                       onPressed: () => product.like.toggle(),
-                      iconSize: 18.0,
                       icon: product.like.value
                           ? const Icon(Icons.favorite_rounded)
                           : const Icon(Icons.favorite_border),
@@ -44,13 +43,16 @@ class ProductTile extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8.0),
-            Text(
-              product.name,
-              style: const TextStyle(fontWeight: FontWeight.w400),
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
+            Expanded(
+              child: Text(
+                product.name,
+                style: const TextStyle(fontWeight: FontWeight.w400),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+              ),
             ),
             const SizedBox(height: 8.0),
+            if (product.rating != null)
             Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 4.0,
@@ -60,15 +62,19 @@ class ProductTile extends StatelessWidget {
                 color: Colors.green,
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    '${product.rating}',
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  const Icon(Icons.star, size: 16.0, color: Colors.white),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(4.0, 0, 4.0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      '${product.rating}',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    const SizedBox(width: 4.0),
+                    const Icon(Icons.star, size: 16.0, color: Colors.white),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 8.0),

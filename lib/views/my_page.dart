@@ -13,13 +13,8 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.menu),
         title: const Text('GridView Shop'),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.view_list_rounded),
-          ),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.shopping_cart),
