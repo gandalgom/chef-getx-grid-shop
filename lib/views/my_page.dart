@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import './product_tile.dart';
 import '../controllers/controller.dart';
-import '../views/product_tile.dart';
 
 class MyPage extends StatelessWidget {
   MyPage({Key? key}) : super(key: key);
@@ -32,9 +32,16 @@ class MyPage extends StatelessWidget {
               mainAxisSpacing: 8.0,
               crossAxisSpacing: 8.0,
             ),
-            itemBuilder: (context, index) => ProductTile(
-              product: controller.productList[index],
-            ),
+            itemBuilder: (context, index) {
+              var productItem = controller.productList[index];
+              return ProductTile(
+                imageLink: productItem.imageLink,
+                name: productItem.name,
+                rating: productItem.rating,
+                price: productItem.price,
+                like: productItem.like,
+              );
+            },
             itemCount: controller.productList.length,
           ),
         ),

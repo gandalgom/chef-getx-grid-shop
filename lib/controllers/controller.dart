@@ -9,13 +9,13 @@ class Controller extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchData();
+    _fetchData();
   }
 
-  void fetchData() async {
-    var products = await Network.fetchProducts();
-    if (products != null) {
-      productList.value = products;
+  void _fetchData() async {
+    var productData = await Network.fetchProducts();
+    if (productData != null) {
+      productList.value = productFromJson(productData);
     }
   }
 }
